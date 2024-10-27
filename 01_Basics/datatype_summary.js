@@ -39,3 +39,37 @@ const myFunction = function(){
 }
 
 console.log(typeof anotherId);
+
+
+
+//=========================================
+//     Memory
+
+//1) Stack
+//   Used in Primitive datatype
+
+    let firstName = "abhinav"
+    let secondName = firstName
+
+    secondName = "Bhankharia"
+    console.log(firstName);
+    console.log(secondName);
+
+//2) Heap
+//    Used in Non-Primitive datatype, uses memory references
+
+let userOne = {
+    email:"user@google.com", 
+    upi : "abc@ybl"
+}
+
+let userTwo= userOne
+
+userTwo.email = "abhinav@google.com"        //here changing mail of one user changes the emial for tother user as well, as it uses memmroy refernece
+
+console.log(userOne.email);
+console.log(userTwo.email);
+
+
+
+
