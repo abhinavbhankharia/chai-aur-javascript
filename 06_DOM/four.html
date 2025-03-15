@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur Code || DOM </title>
+</head>
+<body style="background-color: #212121; color:#fff">
+    <ul class="languages">
+        <li>JavaScript</li>
+    </ul>
+    <script>
+        function addLanguage(langName){
+            const li = document.createElement('li')
+            li.innerHTML = `${langName}`
+            document.querySelector('.languages').appendChild(li)
+        }
+        addLanguage('Python')
+        addLanguage('Java')
+        addLanguage('C++')
+
+        function addLang(langName){
+            const li = document.createElement('li')
+            li.appendChild(document.createTextNode(langName))
+            document.querySelector('.languages').appendChild(li)
+        }
+        addLang('C#')
+
+        //edit an element
+        const secLang = document.querySelector("li:nth-child(2)")
+        //secLang.innerHTML = "TypeScript"
+        const newLi = document.createElement("li")  //making a new li element and then replacing it with the old li element.
+        newLi.textContent = "TypeScript"
+        secLang.replaceWith(newLi)
+        //another method to replace an element, this replaces the element with outer HTML.
+        const firstLang = document.querySelector("li:first-child")
+        firstLang.outerHTML = "<li>HTML</li>"
+        //remove element
+        const lastLang = document.querySelector("li:last-child")
+        lastLang.remove()
+
+    </script>
+
+</body>
+</html>
