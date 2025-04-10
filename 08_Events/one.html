@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+</head>
+<body style="background-color:#414141; color:aliceblue">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    //in line on click should not be used as it is not scalable
+    //using onclick event on id is also not recommended 
+    //document.getElementById('owl').onclick = function(){
+    //    alert("owl clicked")}
+
+    //attachEvent() method 
+    //jQuery - onEvent 
+
+    //we should use event listeners which provide not just onclick but also propogation functoinality 
+    //addEventListener(#event, fucntion(eventObject){}, true/false:default false)
+    //false:event bubbling 
+    //true:event capturing
+    
+    //example of event bubbling, event triggered from inside to outside
+    //document.getElementById('images').addEventListener('click', function(e){
+    //    console.log("clicked inside the ul")
+    //  }, false)
+    //document.getElementById('owl').addEventListener('click', function(e){
+    //    console.log("owl clicked")
+    //    e.stopPropagation()     //avoids event bubbling, outer events are stopped from propogation
+    //}, false)
+
+    //document.getElementById('google').addEventListener('click', function(e){
+    //    console.log("google clicked")
+    //    e.preventDefault()
+    //    e.stopPropagation()
+    //}, false)
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        if(e.target.tagName === 'IMG')
+        {
+            let removeIt = e.target.parentNode      //gives li element of target
+            removeIt.remove()
+            //removeIt.parentNode.removeChild(removeIt) //gives ul element of the target
+            
+        }
+
+    }, false)
+
+
+    //type , timestamp, defaultPrevented 
+    //target, toElement, scrElement, currentTarget
+    //clientX, clientY, screenX, screenY
+    //altkey, ctrlkey, shiftkey, keyCode
+    
+</script>
+</html>
