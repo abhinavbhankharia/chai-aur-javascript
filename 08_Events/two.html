@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async in JS</title>
+</head>
+<body>
+    <h1>Chai aur JS</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    //setTimeout() is not a part of core javascript
+    //setTimeout(function(){
+    //    console.log("abhinav")
+    //}, 2000) 
+
+    //const abhi = function (){
+    //    console.log("abhinav")
+    //}
+    //setTimeout(abhi,1000)   //using reference of the function
+
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "Abhinav"
+    }
+    
+    const changeMe = setTimeout(changeText,2000) //setTimeout will still execute even after holding it under a variable
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(changeMe)
+        console.log("stopped")
+    },false)
+
+</script>
+</html>
