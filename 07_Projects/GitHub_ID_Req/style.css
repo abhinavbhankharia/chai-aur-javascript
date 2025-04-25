@@ -1,0 +1,85 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #ffffff; /* Light text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #1e1e1e; /* Slightly lighter background for the container */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Styles */
+form {
+    margin-top: 20px;
+}
+
+form p {
+    margin: 10px 0;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 80%;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: #2c2c2c;
+    color: #ffffff;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* User Details Card */
+#UserDetails {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #2c2c2c; /* Card background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: none; /* Initially hidden */
+}
+
+#UserDetails img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 2px solid #007bff;
+}
+
+#UserDetails h2 {
+    margin: 10px 0;
+    font-size: 20px;
+    color: #00ff00; /* Green for success message */
+}
+
+#UserDetails h3 {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #ffffff;
+}
