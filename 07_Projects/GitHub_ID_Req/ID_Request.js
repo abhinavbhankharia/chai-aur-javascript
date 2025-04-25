@@ -4,7 +4,7 @@ form.addEventListener('submit', function(event){
     event.preventDefault()      // Prevents the default action of the form submission
 
     const userDetails = document.getElementById('User Details')
-    let userID = document.querySelector('#username').value
+    const userID = document.querySelector('#username').value
     const requestUrl = `https://api.github.com/users/${userID}`
     
     const xhr = new XMLHttpRequest (); //creating object for reference
@@ -13,7 +13,7 @@ form.addEventListener('submit', function(event){
         if (xhr.readyState==4) {
         const data = JSON.parse(this.responseText)  //here string gets converted to JSON format
             if(data.status != "404"){
-                userID = ""
+                
                 //display User profile image
                 userDetails.querySelector("img").src = data.avatar_url;
 
@@ -21,14 +21,15 @@ form.addEventListener('submit', function(event){
                 userDetails.querySelector("h2").textContent = `User Found.`
                 userDetails.querySelector("h3:nth-of-type(1)").textContent = `Name: ${data.name}`;
                 userDetails.querySelector("h3:nth-of-type(2)").textContent = `Followers: ${data.followers}`;
+                document.getElementById('username').value = ''
             }
             else
             {
-                userID = ""
                 userDetails.querySelector("img").src = 'none';
                 userDetails.querySelector("h2").textContent = `User Not Found. Please Enter valid Username`;
                 userDetails.querySelector("h3:nth-of-type(1)").textContent = ``;
                 userDetails.querySelector("h3:nth-of-type(2)").textContent = ``;
+                document.getElementById('username').value = ''
             }
         }
     }
